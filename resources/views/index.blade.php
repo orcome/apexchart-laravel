@@ -11,14 +11,17 @@
                 <div class="container">
                     <h1>Apexchart Laravel</h1>
                     <div class="row justify-content-center">
+
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">Jenis Chart</div>
                                 <div class="card-body">
-                                    Ini isi chart
+                                    <div id="chart1">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -29,3 +32,26 @@
     <script src="{{ asset('js/apexcharts.js') }}"></script>
 </body>
 </html>
+
+<script>
+    var options = {
+        series: [44, 55, 41, 17, 15],
+        chart: {
+            type: 'donut',
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart1"), options);
+    chart.render();
+</script>
